@@ -1,0 +1,1 @@
+﻿Add-WindowsFeature -Name hyper-v -IncludeAllSubFeature -IncludeManagementTools -Restart
