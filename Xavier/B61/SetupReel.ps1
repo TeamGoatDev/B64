@@ -1,7 +1,6 @@
 ﻿#Xavier Hduon-Dansereau
 #05/05/2015
 #Script #1
-#Remise #2
 #Lancer à partir du serveur Réel
 #Ce code modifie les configuration du serveur Réel
 #------------------------------------------------------
@@ -32,7 +31,8 @@ function main{
             restartComputer;
         }
         else{
-            "Hyper-V est déjà installé, voici la suite : "
+            Write-Host "Hyper-V est déjà installé, voici la suite : " -ForegroundColor yellow
+
             setExternalCard;
             renameBasicCard
             addVirtualSwitch;
