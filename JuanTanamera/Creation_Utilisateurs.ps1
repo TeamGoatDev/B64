@@ -8,10 +8,10 @@
 # Serveurs modifiés: SERVEUR 1 (Contrôleur de Domaine)
 ######################################################
 
-
+clear-host
 
 #USERS
-$controleurDomaine = "SERVEUR_1"
+$controleurDomaine = "B64HV1"
 $csvFileMembres = "\\$controleurDomaine\C$\_CEGAT_PRO\PROG.csv"
 
 $dossiersUtilisateurs = "\\$controleurDomaine\C$\_CEGAT_PRO"
@@ -21,6 +21,8 @@ $dossiersProfils = "$dossiersUtilisateurs\Profils"
 $motDePasse = "AAAaaa111"
 $lecteurPersonnel = "P"
 
+$DC = (Get-ADDomain).DistinguishedName
+$PROG = (Get-ADOrganizationalUnit  -Filter: 'Name -eq "PROGRAMMATION"').DistinguishedName
 
 # CRÉATION DU DOSSIER DES UTILISATEURS
 New-Item -Path "C:\_CEGAT_PRO" -ItemType Directory
@@ -54,13 +56,11 @@ foreach($line in $csvMembre){
     Write-Host "Ajout de $matricule - $nomComplet ..."
 
 
-    #Création du dossier personnel + droits NTFS
+    #Création du dossier personnel + dossier Profil
     Write-Host "Création de son dossier personnel"
     New-Item -Path $dossierPersonnel -ItemType Directory
-
-    icacls $dossierPersonnel  /grant $matricule+":(CI)(OI)(M)"
-
-
+    New-Item -Path $cheminProfil -ItemType Directory
+ 
 
 
     #DÉTERMINER LE GROUPE ET LE PATH ACTIVE DIRECTORY
@@ -72,35 +72,41 @@ foreach($line in $csvMembre){
     # Matricule entre 60000 et 69999 = Testeurs de jeux
 
     $groupe = ""
+    $ouName = ""
+
+
     if($matricule -ge 10000 -and $matricule -le 19999){
-        $groupe = "Developpeur 3D"
-        
+        $groupe = "Developpeurs 3D"
+        $ouName = "3D"
 
     }elseif($matricule -ge 20000 -and $matricule -le 29999){
-        $groupe = "Developpeur .NET"
+        $groupe = "Developpeurs .NET"
+        $ouName = ".NET"
 
     }elseif($matricule -ge 30000 -and $matricule -le 39999){
-        $groupe =  "Integrateurs"
+        $groupe =  "Intégrateurs"
+        $ouName = "Integrateur"
 
     }elseif($matricule -ge 40000 -and $matricule -le 49999){
         $groupe =  "Designers WEB"
+        $ouName = "Developpeurs WEB"
 
     }elseif($matricule -ge 50000 -and $matricule -le 59999){
         $groupe = "Testeurs d'outils"
+        $ouName = "Outils"
 
     }elseif($matricule -ge 60000 -and $matricule -le 69999){
         $groupe =  "Testeurs de Jeux"
+        $ouName = "Jeux"
     }
 
-
-
+    $userPath = (Get-ADOrganizationalUnit  -Filter: 'Name -eq $ouName').DistinguishedName
 
 
     #CRÉATION DE L'UTILISATEUR DANS L'ACTIVE DIRECTORY
     New-ADUser -Name $matricule `
     -UserPrincipalName $matricule `
     -AccountPassword (ConvertTo-SecureString $motDePasse -AsPlainText -force) `
-    -SamAccountName $matricule ` 
     -DisplayName $nomComplet `
     -GivenName $prenom `
     -Surname $nom `
@@ -114,13 +120,15 @@ foreach($line in $csvMembre){
     -HomeDirectory $dossierPersonnel `
     -Enabled $true `
     -PasswordNeverExpires $true `
+    -Path $userPath
     
 
     Write-Host "$matricule - $nomComplet Ajouté avec succès"
     
-
+    
 
     #AJOUT AUX GROUPES
+
     Add-ADGroupMember $groupe $matricule
 
     if($matricule % 10000 -eq 0){
@@ -128,15 +136,18 @@ foreach($line in $csvMembre){
     }
     
 
+    #DROITS NTFS SUR DOSSIER PERSO
+    icacls $dossierPersonnel  /grant $matricule":(CI)(OI)(M)"
+
 }
 
 
 #NTFS Admin System Gestionnaire
 
-icacls $dossiersPerso  /grant "Administrateurs:(CI)(OI)(F)"
-icacls $dossiersPerso  /grant "Systeme:(CI)(OI)(F)"
-icacls $dossiersPerso  /grant "Gestionnaire:(CI)(OI)(RX)"
+icacls $dossiersPerso  /grant "DALTON\Admins du domaine:(CI)(OI)(F)"
+icacls $dossiersPerso  /grant "Système:(CI)(OI)(F)"
+icacls $dossiersPerso  /grant "DALTON\Gestionnaires:(CI)(OI)(RX)"
 
-icacls $dossiersProfils  /grant "Administrateurs:(CI)(OI)(F)"
-icacls $dossiersProfils  /grant "Systeme:(CI)(OI)(F)"
-icacls $dossiersProfils  /grant "Gestionnaire:(CI)(OI)(RX)"
+icacls $dossiersProfils  /grant "DALTON\Admins du domaine:(CI)(OI)(F)"
+icacls $dossiersProfils  /grant "DALTON\Système:(CI)(OI)(F)"
+icacls $dossiersProfils  /grant "DALTON\Gestionnaires:(CI)(OI)(RX)"
