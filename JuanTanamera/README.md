@@ -18,3 +18,9 @@ Chose à faire avant la journée du déploiement B64
 * [ ] Script pour créer les espaces de noms REMISE: 28 mai
 	* [ ] la création des espaces
 	* [ ] les dossiers sous les espaces de noms
+
+* [x] Changer les noms des OU pour qu'ils soient différents des groupes. Ex Intégration au lieu d'Intégrateur
+
+* [x] DOMAINE_FERMETURE: ACTIVER LE PARAMÈTRE Arrêt: permet au système d’être arrêté sans avoir à se connecter
+
+* [ ] Exporter les GPO et les tester
