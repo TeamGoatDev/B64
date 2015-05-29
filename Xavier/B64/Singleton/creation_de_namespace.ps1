@@ -1,8 +1,22 @@
 ﻿#Xavier Hudon-Dansereau
 #28/05/2015
 #Script #1
-#Lancer à partir du serveur Réel
-#Ce code modifie les configuration du serveur Réel
+#Lancer à partir du serveur InterneDeux
+#Ce code modifie les configurations du serveur InterneDeux
 #------------------------------------------------------
 #Déclaration
-#------------$serveur = "LUNA"#Creation d'une CimSession$cim = New-CimSession -ComputerName $serveur;#Creation du de la racine DFS------------------------------------------------------------------------------------------#Creation du dossierNew-Item -Path \\$serveur\C$\DFSROOT -ItemType directory -ForceNew-Item -Path \\$serveur\C$\DFSROOT\DFSDepartement -ItemType directory -ForceNew-Item -Path \\$serveur\C$\DFSROOT\DFSGestionnaire -ItemType directory -Force#Creation des partagesNew-SmbShare -Name DFS_DEPARTEMENT$ `             -Path C:\DFSROOT\DFSDepartement `             -CimSession $cim `             -FolderEnumerationMode AccessBased `             -CachingMode NoneNew-SmbShare -Name DFS_GESTIONNAIRE$ `             -Path C:\DFSROOT\DFSGestionnaire `             -CimSession $cim `             -FolderEnumerationMode AccessBased `             -CachingMode None             #Creation des racinesNew-DfsnRoot -Path "\\DOTA.PRO\DFSROOT\DFSDepartement" `             -TargetPath "\\AXE\DFS_DEPARTEMENT$" `             -EnableAccessBasedEnumeration $true `             -Type DomainV1;New-DfsnRoot -Path "\\DOTA.PRO\DFSROOT\DFSGestionnaire" `             -TargetPath "\\AXE\DFSROOT_GESTIONNAIRE$" `             -EnableAccessBasedEnumeration $true `             -Type DomainV1;#----------------------------------------------------------------------------------------------------------------------#Creation des dossiers dans departementNew-DfsnFolder -Path "\\DOTA.PRO\DFSDepartement\Programmation" `               -TargetPath "\\AXE\_PROGRAMMATION";New-DfsnFolder -Path "\\DOTA.PRO\DFSDepartement\Integration" `               -TargetPath "\\AXE\_INTEGRATION";New-DfsnFolder -Path "\\DOTA.PRO\DFSDepartement\Analyse" `               -TargetPath "\\AXE\_ANALYSE";New-DfsnFolder -Path "\\DOTA.PRO\DFSDepartement\Test" `               -TargetPath "\\LUNA\_Test";#Creation des dossiers dans GestionnaireNew-DfsnFolder -Path "\\DOTA.PRO\DFSGestionnaire\Perso" `               -TargetPath "\\AXE\Perso$";New-DfsnFolder -Path "\\DOTA.PRO\DFSGestionnaire\Profiles" `               -TargetPath "\\AXE\Profiles$";New-DfsnFolder -Path "\\DOTA.PRO\DFSGestionnaire\Dep" `               -TargetPath "\\AXE\DFS_DEPARTEMENT$";
+#------------$v1Name = "InterneUn";
+$v2Name = "InterneDeux";$cim = New-CimSession -ComputerName $serveur;$domaine = "CEGAT.PRO"
+#------------#
+#Création    #
+#------------#New-Item -Path \\$v2Name\C$\dfs\Departement -ItemType directory -ForceNew-Item -Path \\$v2Name\C$\dfs\Gestionnaire -ItemType directory -Force
+
+#------------#
+#Share       #
+#------------#New-SmbShare -Name DEPARTEMENT$ `    -FullAccess "Tout le monde" `    -Path C:\dfs\Departement `    -CimSession $cim `    -FolderEnumerationMode AccessBased `    -CachingMode NoneNew-SmbShare -Name GESTIONNAIRE$ `    -FullAccess "Tout le monde" `    -Path C:\dfs\Gestionnaire `    -CimSession $cim `    -FolderEnumerationMode AccessBased `    -CachingMode None#--------------#
+#NameSpace Root#
+#--------------#New-DfsnRoot -Path "\\$domaine\dfs\Departement" `    -TargetPath "\\$v1Name\DEPARTEMENT$" `    -Type DomainV1`    -EnableAccessBasedEnumeration $true;New-DfsnRoot -Path "\\$domaine\dfs\Gestionnaire" `    -TargetPath "\\$v1Name\GESTIONNAIRE$" `    -Type DomainV1`    -EnableAccessBasedEnumeration $true;#------------#
+#Département #
+#------------#New-DfsnFolder -Path "\\$domaine\Departement\Analyse" `    -TargetPath "\\$v1Name\ANALYSE";New-DfsnFolder -Path "\\$domaine\Departement\Integration" `-TargetPath "\\$v1Name\INTEGRATION";New-DfsnFolder -Path "\\$domaine\Departement\Programmation" `    -TargetPath "\\$v1Name\PROGRAMMATION";New-DfsnFolder -Path "\\$domaine\Departement\Test" `    -TargetPath "\\$v2Name\TEST";#------------#
+#Gestionnaire#
+#------------#New-DfsnFolder -Path "\\$domaine\Gestionnaire\Perso" `    -TargetPath "\\$v1Name\Perso$";New-DfsnFolder -Path "\\$domaine\Gestionnaire\Profiles" `    -TargetPath "\\$v1Name\Profiles$";New-DfsnFolder -Path "\\$domaine\Gestionnaire\Dep" `    -TargetPath "\\$v1Name\DEPARTEMENT$";
