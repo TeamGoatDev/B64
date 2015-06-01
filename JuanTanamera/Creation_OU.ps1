@@ -14,10 +14,10 @@ import-module -Name grouppolicy
 
 $DC = (Get-ADDomain).DistinguishedName;
 $prog = "PROGRAMMATION"
-$developpeurs = "Developpeurs"
-$devWeb = "DeveloppeursWEB"
-$integrateurs = "Integrateurs"
-$testeurs = "Testeurs"
+$developpeurs = "Developpement"
+$devWeb = "DeveloppementWEB"
+$integrateurs = "Integration"
+$testeurs = "Tests"
 $ordinateurs = "Ordinateurs"
 
 
@@ -39,5 +39,6 @@ New-ADOrganizationalUnit -Name "Outils" -path "OU=$testeurs,OU=$prog,$DC" -Prote
 New-ADOrganizationalUnit -Name "Jeux" -path "OU=$testeurs,OU=$prog,$DC" -ProtectedFromAccidentalDeletion:$false
 
 #ORDINATEURS
-New-ADOrganizationalUnit -Name $ordinateur -path "OU=$prog,$DC" -ProtectedFromAccidentalDeletion:$false
+New-ADOrganizationalUnit -Name $ordinateurs -path "OU=$prog,$DC" -ProtectedFromAccidentalDeletion:$false
 
+Write-Host "Structure OU créée avec succès"

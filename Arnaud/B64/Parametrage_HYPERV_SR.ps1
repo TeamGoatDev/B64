@@ -9,12 +9,13 @@ if($name = Get-NetAdapter -Name "Ethernet 4")
 {
     $name = $name.Name;
 
-    Rename des cartes reseau
+
+    #Rename des cartes reseau
     Rename-NetAdapter -Name $name -NewName "OnBoard";
 
     $diskPath = "C:\_VirDisque";
     $machinePath = "C:\_VirOrdi";
-
+ 
     #Changement des paths
     Set-VMHost -VirtualHardDiskPath $diskPath -VirtualMachinePath $machinePath;
 
@@ -22,12 +23,14 @@ if($name = Get-NetAdapter -Name "Ethernet 4")
     New-VMSwitch -Name Comm_INTERNE -SwitchType Internal
     New-VMSwitch -Name Comm_EXTERNE -NetAdapterName OnBoard
 
+
     #Modification Adresse IP Interne
     $name = Get-NetAdapter -Name "vEthernet (Comm_INTERNE)";
     $name = $name.Name;
 
     #Changement de l'adresse de la carte
     New-NetIPAddress -InterfaceAlias $name -PrefixLength 24 -IPAddress 192.168.0.100; 
+
 
     #Creation des ordinateurs virtuels
 
@@ -75,7 +78,6 @@ if($name = Get-NetAdapter -Name "Ethernet 4")
     Rename-NetAdapter -Name "vEthernet (Comm_EXTERNE)" -NewName "WAN_CONFIG";
 	Rename-NetAdapter -Name "vEthernet (Comm_INTERNE)" -NewName "CEGAT";
 	
-
 }
 else
 {

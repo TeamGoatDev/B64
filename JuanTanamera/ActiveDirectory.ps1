@@ -4,6 +4,7 @@
 #
 # Objectif: Installation de l'active directory
 #
+# COURS: B64
 # Serveur d'éxécution: Serveur Virtuel 1
 # Serveurs modifiés: Serveur Virtuel 1
 # Reférences: 

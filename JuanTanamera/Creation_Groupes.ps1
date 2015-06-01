@@ -8,13 +8,15 @@
 # Serveurs modifiés: SERVEUR 1 (Contrôleur de Domaine)
 ######################################################
 
+Clear-Host
+
 #PARAMÈTRES
 $DC =  (Get-ADDomain).DistinguishedName;
 $cheminDesGroupes = "OU=PROGRAMMATION,$DC"
 $groupes = @(
-    "Developpeur .NET",
-    "Developpeur 3D",
-    "GrIntégrateurs",
+    "Developpeurs .NET",
+    "Developpeurs 3D",
+    "Intégrateurs",
     "Designers WEB",
     "Testeurs d'outils",
     "Testeurs de Jeux",
@@ -32,3 +34,4 @@ foreach($groupe in $groupes){
     -Path $cheminDesGroupes
 
 }
+Write-Host "Groupes Créés avec succès"

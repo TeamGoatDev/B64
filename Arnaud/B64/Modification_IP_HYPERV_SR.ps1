@@ -16,6 +16,7 @@ New-NetIPAddress -InterfaceAlias $name -PrefixLength 16 -DefaultGateway 10.57.1.
 #Assignation du DNS
 Set-DnsClientServerAddress -InterfaceAlias $name -ServerAddresses 10.57.4.28, 10.57.4.29;
 
+
 #Changement du nom de l'ordinateur
 Rename-Computer -NewName "408O21P3"
 
