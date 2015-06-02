@@ -62,7 +62,7 @@ foreach($line in $csvMembre){
 
     $cheminProfil = "$dossiersProfils\$matricule.V4"
 
-    $dossierPersonnel = "$dossiersPerso\$matricule";
+    $dossierPersonnel = "\\AXE\Perso$\$matricule";
 
     Write-Host "Ajout de $matricule - $nomComplet ..."
 
