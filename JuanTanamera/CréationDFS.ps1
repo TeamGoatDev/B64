@@ -10,25 +10,31 @@
 # Serveurs modifiés: SERVEUR 2
 ###########################################################
 
-New-Item -Path C:\DFSROOT -ItemType Directory
-New-Item -Path C:\DFSROOT\Dept -ItemType Directory
-New-Item -Path C:\DFSROOT\Gestionnaire -ItemType Directory
+clear-host
 
-$nomServeur1 = "Serveur1"
-$nomServeur2 = "Serveur2"
+
+#Install-WindowsFeature FileAndStorage-Services, FS-DFS-Namespace, FS-DFS-Replication, RSAT-DFS-Mgmt-Con `
+#-IncludeManagementTools
+
+New-Item -Path C:\DFSROOT -ItemType Directory -ErrorAction Ignore
+New-Item -Path C:\DFSROOT\Dept -ItemType Directory -ErrorAction Ignore
+New-Item -Path C:\DFSROOT\Gestionnaire -ItemType Directory -ErrorAction Ignore
+
+$nomServeur1 = "Ganondorf"
+$nomServeur2 = "Gerudo"
 $c = New-CimSession -ComputerName $nomServeur2;
 
 New-SmbShare -Path C:\DFSROOT\Dept `
 				-Name partage_Dept `
 				-CachingMode None `
-				-FolderEnumerationMode AccessBased
+				-FolderEnumerationMode AccessBased `
 				-CimSession $c  `
 
 
-New-SmbShare -Path  C:\DFSROOT\Gestionnaire `
+New-SmbShare    -Path  C:\DFSROOT\Gestionnaire `
 				-Name partage_Gestionnaire `
 				-CachingMode None `
-				-FolderEnumerationMode AccessBased
+				-FolderEnumerationMode AccessBased `
 				-CimSession $c  `
 
 

@@ -11,11 +11,12 @@
 # Serveur d'éxécution: SERVEUR 1 (Contrôleur de Domaine)
 # Serveurs modifiés: SERVEUR 1 (Contrôleur de Domaine)
 ######################################################
+clear-host
 
-$nomDomaine = "HYRULE.PRO"
+$nomDomaine = "HYRULE"
 
-$nomServeur1 = "Gerudo"
-$nomServeur2 = "Ganondorf"
+$nomServeur1 = "Ganondorf"
+$nomServeur2 = "Gerudo"
 
 $dossierPROGRAMMATION = "\\$nomServeur1\C$\_CEGAT_PRO\PROGRAMMATION"
 $dossierINTEGRATION = "\\$nomServeur1\C$\_CEGAT_PRO\INTÉGRATION"
