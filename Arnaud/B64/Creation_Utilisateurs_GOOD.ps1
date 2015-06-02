@@ -128,7 +128,7 @@ foreach($line in $csvMembre){
     -PostalCode $codePostal `
     -City $ville `
     -ProfilePath $cheminProfil `
-    -HomeDrive $lecteurPersonnel `
+    -HomeDrive "P:" `
     -HomeDirectory $dossierPersonnel `
     -Enabled $true `
     -PasswordNeverExpires $true `
