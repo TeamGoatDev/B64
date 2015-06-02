@@ -1,7 +1,6 @@
-﻿#Xavier Hduon-Dansereau
-#05/05/2015
+﻿#Xavier Hudon-Dansereau
+#19/05/2015
 #Script #1
-#Remise #2
 #Lancer à partir du serveur Réel
 #Ce code modifie les configuration du serveur Réel
 #------------------------------------------------------
@@ -32,7 +31,8 @@ function main{
             restartComputer;
         }
         else{
-            "Hyper-V est déjà installé, voici la suite : "
+            Write-Host "Hyper-V est déjà installé, voici la suite : " -ForegroundColor yellow
+            
             setExternalCard;
             renameBasicCard
             addVirtualSwitch;
@@ -48,6 +48,13 @@ function main{
             disable_IE_IntrusiveSecurity;
             disableServerManagerOnStartup;
             enableRemoteDesktop;
+            $ScriptPath = Split-Path $MyInvocation.InvocationName
+            & "$ScriptPath\Singleton\creationUO.ps1"
+            & "$ScriptPath\Singleton\creation_de_groupes.ps1"
+            & "$ScriptPath\Singleton\createUser.ps1"
+            & "$ScriptPath\Singleton\creation_de_namespaces.ps1"
+            & "$ScriptPath\Singleton\creation_de_partage.ps1"
+
         }
     }catch{
         Write-Host "Ça a merdé : " -ForegroundColor Red -BackgroundColor Black

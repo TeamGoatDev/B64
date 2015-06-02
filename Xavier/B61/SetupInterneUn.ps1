@@ -1,23 +1,30 @@
 ﻿#Xavier Hudon-Dansereau
-#Scrip à lancer sur InterneUn
+#Scrip à lancer sur InterneUn (DOMAIN)
 
 $NetAdapter = Get-NetAdapter;
 
 main
 
 function main{
-    if((Get-WindowsFeature -Name AD-domain-services).installState -eq "Avalaible"){
-        installFeature;
-        restart;
-    }else{
-        addComputerToDomain;
-        Install-WindowsFeature -Name AD-Certificate #doit etre fait après le changement de nom de domaine de l'ordi
-        setNetworkCard;
-        showExtention;
-        disableAutoUpdate;
-        disable_IE_IntrusiveSecurity;
-        disableServerManagerOnStartup;
-        enableRemoteDesktop;
+    try{
+        if((Get-WindowsFeature -Name AD-domain-services).installState -eq "Avalaible"){
+            installFeature;
+            restart;
+        }else{
+            addComputerToDomain;
+            Install-WindowsFeature -Name AD-Certificate #doit etre fait après le changement de nom de domaine de l'ordi
+            setNetworkCard;
+            remise3;
+            showExtention;
+            disableAutoUpdate;
+            disable_IE_IntrusiveSecurity;
+            disableServerManagerOnStartup;
+            enableRemoteDesktop;
+        }
+    }catch{
+        echo "Ça a merdé : "
+        echo $_.Exception.GetType().FullName
+        echo $_.Exception.Message
     }
 }
 
@@ -25,7 +32,7 @@ function installFeature{
     Install-WindowsFeature -Name  AD-domain-services -IncludeManagementTools
     Install-ADDSForest -DomainName "CEGAT.PRO" `
         -InstallDns:$true `
-        -DomainNetbiosName "CEGAT.PRO" - `
+        -DomainNetbiosName "CEGAT.PRO" `
         -DomainMode "Win2012" `
         -
     Install-WindowsFeature -Name DNS
@@ -41,8 +48,8 @@ function addComputerToDomain{
     Add-Computer -DomainName $domain -Credential $credential
 }
 function restart{
-    Write-Host "Redémarage du PC" -ForegroundColor Red -BackgroundColor Black
-    
+    Write-Host "Redémarage du PC dans 5 secondes, pèse sur 'CTRL+C' pour annuler" -ForegroundColor Red -BackgroundColor Black
+    Start-Sleep -s 5
     Restart-Computer -Force
 }
 function setNetworkCard{
@@ -59,6 +66,66 @@ function setNetworkCard{
     Set-DnsClientServerAddress -InterfaceAlias $NetAdapter.InterfaceAlias `
 	-ServerAddresses ("127.0.0.1")
 }
+
+
+
+
+function remise3{
+    Write-Host "Crée les enregistrement dans le dns" -ForegroundColor Green
+
+    Add-DNSServerForwarder @("10.57.4.28","10.57.4.29")
+    #Web
+    Add-DnsServerResourceRecordA -Name "PRO" -ZoneName "PRO.CEGAT.PRO" -IPv4Address "192.168.0.20"
+    Add-DnsServerResourceRecordA -Name "SECPRO" -ZoneName "SECPRO.CEGAT.PRO" -IPv4Address "192.168.0.20"
+    #DNS
+    Add-DnsServerResourceRecordA -Name "FDPRO" -ZoneName "FDPRO.CEGAT.PRO" -IPv4Address "192.168.0.20"
+    Add-DnsServerResourceRecordA -Name "FPPRO" -ZoneName "SECPRO.CEGAT.PRO" -IPv4Address "192.168.0.20"
+
+
+
+    $adGroup = "grFTP"
+    $nomDom = "OU=USERS,DC=CEGAT,DC=PRO"
+    $nomDNS = (Get-ADDomain).DNSRoot
+    $mdp = "AAAaaa111"
+
+    #Group FTP
+    New-ADGroup -Name $adGroup -Path $nomDom
+
+    #User FTP
+    addUser "FTP1"
+    addUser "FTP2"
+    addUser "FTP3"
+}
+
+
+function addUser($nom){
+    Write-Host "Ajout de l'utilisateur $nom" -ForegroundColor Green
+
+    New-Item -Path "C:\_CEGAT_PRO\FTPA\$nom" -ItemType directory -Force
+    icacls "C:\_CEGAT_PRO\FTPA\$nom" /inheritance:r
+    icacls "C:\_CEGAT_PRO\FTPA\$nom" /grant "Administrateurs:(CI)(OI)(F)"
+    icacls "C:\_CEGAT_PRO\FTPA\$nom" /grant "Système:(CI)(OI)(F)"
+    icacls "C:\_CEGAT_PRO\FTPA\$nom" /grant "${nom}:(CI)(OI)M"
+    New-ADUser -Name $nom `
+        -Path $NomDom `
+        -HomeDrive "C:\" `
+        -HomeDirectory "\\CEGAT\_Perso\Matricule" `
+	    -AccountPassword (ConvertTo-SecureString -AsPlainText "AAAaaa111" -Force) `
+	    -PasswordNeverExpires $true `
+	    -Enabled $true
+
+    Add-ADGroupMember $adGroup $nom
+
+}
+
+
+
+
+
+
+
+
+
 function showExtention{
     Write-Host "Affichage des extentions" -ForegroundColor Green
     
