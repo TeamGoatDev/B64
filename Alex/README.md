@@ -34,7 +34,7 @@
 		- Addresse IP
 		- Passerelle
 		- DNS = LUI-MEME
-	- **Renomme le serveur si tu veux**
+	- **Renomme le serveur si tu veux Serveur1**
 
 ###Connexion Serveur 2
 - Aller sur serveur_2
@@ -44,7 +44,7 @@
 		- Addresse IP
 		- Passerelle
 		- DNS
-	- **Renomme le serveur si tu veux**
+	- **Renomme le serveur si tu veux Serveur2**
 	
 ###Création du Domaine
 - Retourner sur Serveur 1
@@ -75,9 +75,29 @@
 			- Outils AD DS et AD LDS
 			
 ###Création Structure AD
-- Rouler le script 1 sur le serveur 2
+- Rouler le script UO a Antoine sur le serveur 2
 - Ouvrir la console UOAD
 	- Veriier que c'est la THEME.PRO > PROGRAMMATION > Tout est ici
 - Mettre PROG.csv dans C:\_cours\ (t'es mieux de te padder en le copiant dans le C pour etre sur)
-- Runner le script 2
-- 
+- Runner le script 2 (Groupes Antoine)
+- Runner le script pour utilisateurs
+- TOus les utilisateurs qui commencent par 1:
+	- CTRL+X CTRL+V dans  Designers
+- Faire la meme chose avec les autres (groupes a la page 26)
+- Rouler script dossiers
+- Right Click sur OU INTEGRATEURS
+	- Délegation de controle
+	- Ajouter 30000
+		- Réinitialiser les mots de passe <>
+	- Next
+	- Terminer
+
+###Gestion GPO
+- Ouvrir Gestion de Stratégie de Groupe
+- Right click Foret > Domaines > THEME.PRO > Objet de Stratégie de groupe
+	- Nouveau
+	- Nom: "Ouverture"
+	- Modifier la nouvelle GPO
+	- Activer les GPOs du rapport a Gab
+- Faire la meme chose avec les autres GPO
+- Exporter en rapport
