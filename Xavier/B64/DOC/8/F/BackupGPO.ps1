@@ -1,0 +1,1 @@
+﻿Backup-GPO -Path c:\_backup -All

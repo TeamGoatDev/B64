@@ -1,0 +1,42 @@
+Nom_d_UO_parent,Nom_d_UO_a_creer,Description,
+OU=Québec;Magasins;Tous les magasins
+OU=Québec;Kiosque;Les ordinateurs kiosques
+OU=Québec;Serv_Info;Les ressources informatiques
+OU=Québec;Corpo;Tous les services corporatifs
+OU=Magasins,OU=Québec;Caisses;Les ordinateurs des caisses
+OU=Magasins,OU=Québec;Directeurs;Directeurs des magasins
+OU=Magasins,OU=Québec;Caissiers;Les utilisateurs des postes caisses
+OU=Magasins,OU=Québec;Utilisateurs_tempo;Utilisateurs temporaires et stagiaires
+OU=Magasins,OU=Québec;Portables;Les portables des magasins
+OU=Magasins,OU=Québec;Serveurs;Serveurs des magasins
+OU=Magasins,OU=Québec;Ordinateurs;Ordinateurs des magasins autre que les caisses
+OU=Kiosque,OU=Québec;Mag_spec;Les ordinateurs kiosques dans les magasins speciaux
+OU=Serv_Info,OU=Québec;Developpeurs;Les utilisateus - developpeurs
+OU=Serv_Info,OU=Québec;Support_corpo;Utilisateurs du support bureautique pour les services corporatifs autre que les magasins
+OU=Serv_Info,OU=Québec;Support_mag;Utilisateurs du support bureautique pour les magasins
+OU=Serv_Info,OU=Québec;Utilisateurs_tempo;Utilisateurs temporaires stagiaires et conseillers externes
+OU=Serv_Info,OU=Québec;Ordinateurs;Les ordinateurs des ressources informatiques
+OU=Serv_Info,OU=Québec;Portables;Les portables des ressources informatiques
+OU=Corpo,OU=Québec;Siege_social;Siege social
+OU=Corpo,OU=Québec;St-Bruno;St-Bruno
+OU=Corpo,OU=Québec;St-Bruno;St-Bruno
+OU=Corpo,OU=Québec;Montréal;Montréal
+OU=Siege_social,OU=Corpo,OU=Québec;Ventes;Les utilisateurs du service de ventes
+OU=Siege_social,OU=Corpo,OU=Québec;Dev_comm;les utilisateurs du service de Developpement Commercial
+OU=Siege_social,OU=Corpo,OU=Québec;RH;Les utilisateurs du service de Ressources Humaines
+OU=Siege_social,OU=Corpo,OU=Québec;Serveurs;Les serveurs du siege social
+OU=Siege_social,OU=Corpo,OU=Québec;Ordinateurs;Les ordinateurs du siege social
+OU=Siege_social,OU=Corpo,OU=Québec;Portables;Les portables du siege social
+OU=Siege_social,OU=Corpo,OU=Québec;Utilisateurs_tempo;Les utilisateurs temporaires et stagiaires du siege social
+OU=St-Bruno,OU=Corpo,OU=Québec;ordinateurs;Les ordinateurs de St-Bruno
+OU=St-Bruno,OU=Corpo,OU=Québec;Portables;Les portables de St-Bruno
+OU=St-Bruno,OU=Corpo,OU=Québec;Serveurs;Les serveurs de St-Bruno
+OU=St-Bruno,OU=Corpo,OU=Québec;Utilisateurs_tempo;Les utilisateurs temporaires et stagiaires de St-Bruno
+OU=St-Bruno,OU=Corpo,OU=Québec;ordinateurs;Les ordinateurs de St-Bruno
+OU=St-Bruno,OU=Corpo,OU=Québec;Portables;Les portables de St-Bruno
+OU=St-Bruno,OU=Corpo,OU=Québec;Serveurs;Les serveurs de St-Bruno
+OU=St-Bruno,OU=Corpo,OU=Québec;Utilisateurs_tempo;Les utilisateurs temporaires et stagiaires de St-Bruno
+OU=Montréal,OU=Corpo,OU=Québec;ordinateurs;Les ordinateurs de Montréal
+OU=Montréal,OU=Corpo,OU=Québec;Portables;Les portables de Montréal
+OU=Montréal,OU=Corpo,OU=Québec;Serveurs;Les serveurs de Montréal
+OU=Montréal,OU=Corpo,OU=Québec;Utilisateurs_tempo;Les utilisateurs temporaires et stagiaires de Montréal 

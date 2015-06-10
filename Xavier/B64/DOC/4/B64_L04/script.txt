@@ -1,0 +1,17 @@
+New-ADOrganizationalUnit `
+-City:"Montreal" `
+-Description:"Desc" `
+-Name:"Centre" `
+-OtherAttributes:@{"c"="CA";"co"="Canada";"countryCode"="124"} `
+-Path:"OU=Xavier,DC=DALTON,DC=B64" `
+-PostalCode:"CP" `
+-ProtectedFromAccidentalDeletion:$false `
+-Server:"B64HV1.DALTON.B64" `
+-State:"Dept" `
+-Street:"Adresse"
+
+
+
+Get-ADOrganizationalUnit -Filter "DistinguishedName -like 'OU=Niveau2,OU=Niveau1,OU=PROG,DC=DALTON,DC=B64'"
+New-ADOrganizationalUnit -Name PROG -Path "DC=DALTON,DC=B64" -ProtectedFromAccidentalDeletion:$false
+Remove-ADOrganizationalUnit -Identity "OU=PROG,DC=DALTON,DC=B64" -Confirm:$false -recursive

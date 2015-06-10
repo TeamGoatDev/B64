@@ -1,0 +1,42 @@
+aParent;aOu;aDesc
+OU=B64;Magasins;Tous les magasins
+OU=B64;Kiosque;Les ordinateurs kiosques
+OU=B64;Serv_Info;Les ressources informatiques
+OU=B64;Corpo;Tous les services corporatifs
+OU=Magasins,OU=B64;Caisses;Les ordinateurs des caisses
+OU=Magasins,OU=B64;Directeurs;Directeurs des magasins
+OU=Magasins,OU=B64;Caissiers;Les utilisateurs des postes caisses
+OU=Magasins,OU=B64;Utilisateurs_tempo;Utilisateurs temporaires et stagiaires
+OU=Magasins,OU=B64;Portables;Les portables des magasins
+OU=Magasins,OU=B64;Serveurs;Serveurs des magasins
+OU=Magasins,OU=B64;Ordinateurs;Ordinateurs des magasins autre que les caisses
+OU=Kiosque,OU=B64;Mag_spec;Les ordinateurs kiosques dans les magasins speciaux
+OU=Serv_Info,OU=B64;Developpeurs;Les utilisateus - developpeurs
+OU=Serv_Info,OU=B64;Support_corpo;Utilisateurs du support bureautique pour les services corporatifs autre que les magasins
+OU=Serv_Info,OU=B64;Support_mag;Utilisateurs du support bureautique pour les magasins
+OU=Serv_Info,OU=B64;Utilisateurs_tempo;Utilisateurs temporaires stagiaires et conseillers externes
+OU=Serv_Info,OU=B64;Ordinateurs;Les ordinateurs des ressources informatiques
+OU=Serv_Info,OU=B64;Portables;Les portables des ressources informatiques
+OU=Corpo,OU=B64;Siege_social;Siege social
+OU=Corpo,OU=B64;Verdun;Verdun
+OU=Corpo,OU=B64;Moncton;Moncton
+OU=Corpo,OU=B64;Tofino;Tofino
+OU=Siege_social,OU=Corpo,OU=B64;Ventes;Les utilisateurs du service de ventes
+OU=Siege_social,OU=Corpo,OU=B64;Dev_comm;les utilisateurs du service de Developpement Commercial
+OU=Siege_social,OU=Corpo,OU=B64;RH;Les utilisateurs du service de Ressources Humaines
+OU=Siege_social,OU=Corpo,OU=B64;Serveurs;Les serveurs du siege social
+OU=Siege_social,OU=Corpo,OU=B64;Ordinateurs;Les ordinateurs du siege social
+OU=Siege_social,OU=Corpo,OU=B64;Portables;Les portables du siege social
+OU=Siege_social,OU=Corpo,OU=B64;Utilisateurs_tempo;Les utilisateurs temporaires et stagiaires du siege social
+OU=Verdun,OU=Corpo,OU=B64;ordinateurs;Les ordinateurs de Verdun
+OU=Verdun,OU=Corpo,OU=B64;Portables;Les portables de Verdun
+OU=Verdun,OU=Corpo,OU=B64;Serveurs;Les serveurs de Verdun
+OU=Verdun,OU=Corpo,OU=B64;Utilisateurs_tempo;Les utilisateurs temporaires et stagiaires de Verdun
+OU=Moncton,OU=Corpo,OU=B64;ordinateurs;Les ordinateurs de Moncton
+OU=Moncton,OU=Corpo,OU=B64;Portables;Les portables de Moncton
+OU=Moncton,OU=Corpo,OU=B64;Serveurs;Les serveurs de Moncton
+OU=Moncton,OU=Corpo,OU=B64;Utilisateurs_tempo;Les utilisateurs temporaires et stagiaires de Moncton
+OU=Tofino,OU=Corpo,OU=B64;ordinateurs;Les ordinateurs de Tofino
+OU=Tofino,OU=Corpo,OU=B64;Portables;Les portables de Tofino
+OU=Tofino,OU=Corpo,OU=B64;Serveurs;Les serveurs de Tofino
+OU=Tofino,OU=Corpo,OU=B64;Utilisateurs_tempo;Les utilisateurs temporaires et stagiaires de Tofino 

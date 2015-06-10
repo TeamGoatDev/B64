@@ -1,0 +1,21 @@
+Chemin;sn;givenName;telephoneNumber;streetAddress;l
+OU=Directeurs,OU=Magasins;Boivin;Benny;450-894-5983;2345 ST-MARTIN;Boucheville
+OU=Directeurs,OU=Magasins;Chen;Catherine;514-489-5699;12 ROY;Montreal
+OU=Directeurs,OU=Magasins;Chretien;Dominique;514-489-5683;4856 ANDRE;Montreal
+OU=Directeurs,OU=Magasins;Cuerrier;Emilio;450-894-5983;2345 ST-MARTIN;Boucheville
+OU=Support_mag,OU=Serv_Info;Desmeules;Jocelyn;514-831-7813;654 MIMEAULT;St-Laurent
+OU=Support_mag,OU=Serv_Info;Dionne;Jonathan;514-894-1135;123 SAINT-JEAN;Verdun
+OU=Support_mag,OU=Serv_Info;Hardy;Jonathan;450-486-4903;4589 LAMARCHE;Laval
+OU=Support_mag,OU=Serv_Info;Kurt;Julien;514-831-7813;654 MIMEAULT;St-Laurent
+OU=Ventes,OU=Siege_social,OU=Corpo;Lauzon;Kevin;514-894-1126;122 RATELLE;Longueuil
+OU=Ventes,OU=Siege_social,OU=Corpo;Ma;Louis;450-894-5985;456 TESTA;Boucheville
+OU=Ventes,OU=Siege_social,OU=Corpo;Mary;Luc;514-489-5691;4584 BELZILE;Verdun
+OU=Ventes,OU=Siege_social,OU=Corpo;Micu;Monique;514-894-1126;122 RATELLE;Longueuil
+OU=RH,OU=Siege_social,OU=Corpo;Proulx;Paul;450-894-5982;498 ST-JEAN;Longueuil
+OU=RH,OU=Siege_social,OU=Corpo;Rajarison;Olivier;514-745-9627;123 HAMEL;Montreal
+OU=RH,OU=Siege_social,OU=Corpo;Saint-Jules;Philippe;450-583-1586;1158 DUGUAY;Laval
+OU=RH,OU=Siege_social,OU=Corpo;Salles;Roxanne;450-894-5982;498 ST-JEAN;Longueuil
+OU=Corpo;Tourangeau;Steve;514-894-1126;122 RATELLE;Longueuil
+OU=Corpo;Turgeon;Thomas;450-894-5985;456 TESTA;Boucheville
+OU=Corpo;Yelle-Rousseau;Vanessa;514-489-5691;4584 BELZILE;Verdun
+OU=Corpo;Laframboise;Fleurette;450-583-1586;1158 DUGUAY;Laval

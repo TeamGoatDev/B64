@@ -1,0 +1,10 @@
+Nom:Type:Etendue
+grADA:Security:DomainLocal
+grCOBOL:Security:DomainLocal
+grFORTRAN:Security:Global
+grJAVA:Security:DomainLocal
+grLISP:Security:DomainLocal
+grMODULA:Security:Global
+grPASCAL:Security:DomainLocal
+grPHP:Security:Global
+grPYTHON:Security:DomainLocal

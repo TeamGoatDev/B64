@@ -1,0 +1,41 @@
+OU=pays;Magasins;Tous les magasins
+OU=pays;Kiosque;Les ordinateurs kiosques
+OU=pays;Serv_Info;Les ressources informatiques
+OU=pays;Corpo;Tous les services corporatifs
+OU=Magasins,OU=pays;Caisses;Les ordinateurs des caisses
+OU=Magasins,OU=pays;Directeurs;Directeurs des magasins
+OU=Magasins,OU=pays;Caissiers;Les utilisateurs des postes caisses
+OU=Magasins,OU=pays;Utilisateurs_tempo;Utilisateurs temporaires et stagiaires
+OU=Magasins,OU=pays;Portables;Les portables des magasins
+OU=Magasins,OU=pays;Serveurs;Serveurs des magasins
+OU=Magasins,OU=pays;Ordinateurs;Ordinateurs des magasins autre que les caisses
+OU=Kiosque,OU=pays;Mag_spec;Les ordinateurs kiosques dans les magasins speciaux
+OU=Serv_Info,OU=pays;Developpeurs;Les utilisateus - developpeurs
+OU=Serv_Info,OU=pays;Support_corpo;Utilisateurs du support bureautique pour les services corporatifs autre que les magasins
+OU=Serv_Info,OU=pays;Support_mag;Utilisateurs du support bureautique pour les magasins
+OU=Serv_Info,OU=pays;Utilisateurs_tempo;Utilisateurs temporaires stagiaires et conseillers externes
+OU=Serv_Info,OU=pays;Ordinateurs;Les ordinateurs des ressources informatiques
+OU=Serv_Info,OU=pays;Portables;Les portables des ressources informatiques
+OU=Corpo,OU=pays;Siege_social;Siege social
+OU=Corpo,OU=pays;ville1;ville1
+OU=Corpo,OU=pays;ville2;ville2
+OU=Corpo,OU=pays;ville3;ville3
+OU=Siege_social,OU=Corpo,OU=pays;Ventes;Les utilisateurs du service de ventes
+OU=Siege_social,OU=Corpo,OU=pays;Dev_comm;les utilisateurs du service de Developpement Commercial
+OU=Siege_social,OU=Corpo,OU=pays;RH;Les utilisateurs du service de Ressources Humaines
+OU=Siege_social,OU=Corpo,OU=pays;Serveurs;Les serveurs du siege social
+OU=Siege_social,OU=Corpo,OU=pays;Ordinateurs;Les ordinateurs du siege social
+OU=Siege_social,OU=Corpo,OU=pays;Portables;Les portables du siege social
+OU=Siege_social,OU=Corpo,OU=pays;Utilisateurs_tempo;Les utilisateurs temporaires et stagiaires du siege social
+OU=ville1,OU=Corpo,OU=pays;ordinateurs;Les ordinateurs de ville1
+OU=ville1,OU=Corpo,OU=pays;Portables;Les portables de ville1
+OU=ville1,OU=Corpo,OU=pays;Serveurs;Les serveurs de ville1
+OU=ville1,OU=Corpo,OU=pays;Utilisateurs_tempo;Les utilisateurs temporaires et stagiaires de ville1
+OU=ville2,OU=Corpo,OU=pays;ordinateurs;Les ordinateurs de ville2
+OU=ville2,OU=Corpo,OU=pays;Portables;Les portables de ville2
+OU=ville2,OU=Corpo,OU=pays;Serveurs;Les serveurs de ville2
+OU=ville2,OU=Corpo,OU=pays;Utilisateurs_tempo;Les utilisateurs temporaires et stagiaires de ville2
+OU=ville3,OU=Corpo,OU=pays;ordinateurs;Les ordinateurs de ville3
+OU=ville3,OU=Corpo,OU=pays;Portables;Les portables de ville3
+OU=ville3,OU=Corpo,OU=pays;Serveurs;Les serveurs de ville3
+OU=ville3,OU=Corpo,OU=pays;Utilisateurs_tempo;Les utilisateurs temporaires et stagiaires de ville3 
